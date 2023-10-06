@@ -1,0 +1,10 @@
+FROM python:3.8
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the relay server code to the container
+COPY relay.py .
+
+# Set the command to run the relay server
+CMD ["/bin/bash", "-c", "python3 relay.py localhost localhost 9000"]

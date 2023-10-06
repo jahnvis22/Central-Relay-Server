@@ -1,0 +1,26 @@
+version: '3'
+services:
+  relay:
+    build:
+      context: ./relay
+      dockerfile: Dockerfile.relay
+    ports:
+      - 8000:8000
+    volumes:
+      - ./relay:/app
+    networks:
+      - mynetwork
+  dump:
+    build:
+      context: ./dump
+      dockerfile: Dockerfile.dump
+    volumes:
+      - ./dump:/app
+    networks:
+      - mynetwork
+    ports:
+      - 9000:9000
+
+networks:
+  mynetwork:
+    driver: bridge

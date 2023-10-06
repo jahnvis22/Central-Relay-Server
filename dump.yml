@@ -1,0 +1,14 @@
+version: '3'
+services:
+  dump:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dump
+    networks:
+      - mynetwork
+    ports:
+      - 9000:9000
+
+networks:
+  mynetwork:
+    driver: bridge

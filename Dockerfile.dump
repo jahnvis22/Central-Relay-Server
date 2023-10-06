@@ -1,0 +1,10 @@
+FROM python:3.8
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the dump server code to the container
+COPY dump.py .
+
+# Set the command to run the dump server
+CMD ["/bin/bash", "-c", "python3 dump.py localhost"]
